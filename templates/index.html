@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Önkényes Mérvadó</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000000;  /* Fekete háttér */
+            color: #ffffff;  /* Fehér szöveg */
+            margin: 0;
+            padding: 0;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            color: #FFD700;  /* Arany színű cím */
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        li {
+            background-color: #87CEEB;  /* Égkék háttér */
+            color: black;  /* Fekete szöveg */
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            transition: background-color 0.3s ease;
+            text-align: left;
+            font-size: 30px;
+        }
+
+        li:hover {
+            background-color: #5bc0de; /* Világosabb kék, ha ráhoverelnek */
+        }
+
+        a {
+            color: black;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        p {
+            font-size: 20px;
+            color: black;
+        }
+
+        iframe {
+            width: 100%;
+            height: 700px;  /* Növelt magasság a videókhoz */
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #FFD700; /* Arany színű gomb */
+            color: black;
+            padding: 10px 20px;
+            margin-top: 10px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background-color: #ffcc00; /* Világosabb arany gomb */
+        }
+    </style>
+</head>
+<body>
+    <h1>Önkényes Mérvadó</h1>
+    <ul>
+        {% for row in data %}
+        <li>
+            <a href="/full-summary/{{ loop.index }}">{{ row['Cím'] }}</a>
+            <p>{{ row['Összefoglaló'][:350] }}...</p>  <!-- Az összefoglaló első 150 karaktere -->
+            <a href="/full-summary/{{ loop.index }}" class="btn">Tovább</a>
+            <!-- Videó lejátszó -->
+            <iframe src="https://www.youtube.com/embed/{{ row['YouTube link'].split('v=')[1] }}" 
+                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe>
+                    <div class="date">
+                        Közzététel dátuma: {{ row["Közzététel dátuma"] }}
+                    </div>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

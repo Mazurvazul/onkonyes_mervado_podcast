@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - Önkényes Mérvadó Podcast</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000000;  /* Fekete háttér */
+            color: #ffffff;  /* Fehér szöveg */
+            margin: 0;
+            padding: 0;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            color: #FFD700;  /* Arany színű cím */
+        }
+
+        .content {
+            background-color: #87CEEB;  /* Égkék háttér */
+            color: black;  /* Fekete szöveg */
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+            color: black;
+            text-decoration: none;
+        }
+
+        p {
+            font-size: 18px; /* A betűméret növelése */
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #FFD700; /* Arany színű gomb */
+            color: black;
+            padding: 10px 20px;
+            margin-top: 10px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background-color: #ffcc00; /* Világosabb arany gomb */
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ title }}</h1>
+    <div class="content">
+        <p>{{ full_summary }}</p>  <!-- Teljes összefoglaló -->
+    </div>
+    <!-- Vissza gomb a főoldalra -->
+    <a href="/" class="btn">Vissza a főoldalra</a>
+</body>
+</html>
